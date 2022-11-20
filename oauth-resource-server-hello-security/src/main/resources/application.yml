@@ -1,0 +1,8 @@
+server:
+  port: 3003
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://auth-server:3001/oauth2/jwks
