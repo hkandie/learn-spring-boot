@@ -1,4 +1,4 @@
-package com.auth.cllient.demo;
+package com.auth.client.opaque;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,23 +26,16 @@ public class OAuth2ResourceServerSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         // @formatter:off
         http
-                .authorizeHttpRequests((authorize) -> {
-                            try {
-                                authorize
-                                        .mvcMatchers(HttpMethod.GET, "/message/**").hasAuthority("SCOPE_message:read")
-                                        .mvcMatchers(HttpMethod.POST, "/message/**").hasAuthority("SCOPE_message:write")
-                                        .anyRequest().authenticated().and().csrf().disable();
-                            } catch (Exception e) {
-                                throw new RuntimeException(e);
-                            }
-                        }
+                .authorizeHttpRequests((authorize) -> authorize
+                        .antMatchers(HttpMethod.GET, "/actuator/health").permitAll()
+                        .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer((oauth2) -> oauth2
                         .opaqueToken((opaque) -> opaque
                                 .introspectionUri(this.introspectionUri)
                                 .introspectionClientCredentials(this.clientId, this.clientSecret)
                         )
-                ).csrf().disable();;
+                );
         // @formatter:on
         return http.build();
     }

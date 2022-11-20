@@ -1,4 +1,4 @@
-package com.auth.cllient.demo;
+package com.auth.client.hs;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
