@@ -25,6 +25,7 @@ import org.springframework.security.oauth2.core.oidc.OidcScopes;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
+import org.springframework.security.oauth2.server.authorization.client.JdbcRegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.config.ClientSettings;
@@ -99,7 +100,7 @@ public class AuthSecurityConfig {
                 .build();
         // @formatter:on
 
-        return new InMemoryRegisteredClientRepository(loginClient, registeredClient);
+        return new JdbcRegisteredClientRepository(loginClient, registeredClient);
     }
 
     @Bean

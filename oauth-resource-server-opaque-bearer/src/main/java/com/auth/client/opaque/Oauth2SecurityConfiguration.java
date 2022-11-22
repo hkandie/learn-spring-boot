@@ -7,11 +7,10 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.access.AccessDeniedHandler;
 
 @EnableWebSecurity
 @Slf4j
-public class OAuth2ResourceServerSecurityConfiguration {
+public class Oauth2SecurityConfiguration {
 
     @Value("${spring.security.oauth2.resourceserver.opaque.introspection-uri}")
     String introspectionUri;
