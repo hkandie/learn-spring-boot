@@ -100,7 +100,7 @@ public class AuthSecurityConfig {
                 .build();
         // @formatter:on
 
-        return new JdbcRegisteredClientRepository(loginClient, registeredClient);
+        return new InMemoryRegisteredClientRepository(loginClient, registeredClient);
     }
 
     @Bean

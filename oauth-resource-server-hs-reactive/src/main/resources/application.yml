@@ -1,0 +1,7 @@
+server:
+  port: 3005
+spring:
+  data:
+    mongodb:
+      uri: mongodb://mzizi:mzizi@auth-server:27017
+      database: student
