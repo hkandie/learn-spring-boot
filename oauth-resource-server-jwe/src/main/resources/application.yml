@@ -1,0 +1,10 @@
+server:
+  port: 3004
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://auth-server:3001/.well-known/jwks.json
+sample:
+  jwe-key-value: classpath:simple.priv

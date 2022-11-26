@@ -1,3 +1,8 @@
+app:
+  aws:
+    region: "us-east-1"
+    secrets:
+     dbSecretId: "Spider/rx-powet/db-normal-user-secret"
 server:
   port: 3003
 spring:

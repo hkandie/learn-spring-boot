@@ -1,36 +1,27 @@
 package com.auth.client.hs;
 
-import com.auth.client.hs.products.Product;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.OAuth2AuthenticatedPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
 public class OAuth2ResourceServerController {
 
-    @Autowired
-    GreetingService service;
-
-
     @GetMapping("/")
-    public ResponseEntity<String> index(Authentication authentication, @AuthenticationPrincipal Jwt jwt) {
-        return ResponseEntity.ok(service.greet(jwt));
+    public String index(@AuthenticationPrincipal Jwt jwt) {
+        return String.format("Hello, %s!", jwt.getSubject());
     }
 
     @GetMapping("/message")
     @PreAuthorize("hasAuthority(\"SCOPE_message:read\")")
-    public ResponseEntity<List<Product>> message(Authentication authentication, @AuthenticationPrincipal Jwt jwt) {
-
-        return ResponseEntity.ok(service.products());
+    public String message() {
+        return "secret message";
     }
 
     @PostMapping("/message")

@@ -1,0 +1,10 @@
+server:
+  port: 3002
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaque:
+          introspection-uri: http://auth-server:3001/introspect
+          introspection-client-id: some-cc-client-id
+          introspection-client-secret: some-cc-client-secret

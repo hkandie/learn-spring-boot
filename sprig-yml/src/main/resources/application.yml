@@ -1,0 +1,13 @@
+server:
+#  ssl:
+#    key-store: springboot.p12
+#    key-store-password: password
+#    key-store-type: pkcs12
+#    key-alias: springboot
+#    key-password: password
+  port: 3001
+app:
+  secret:
+    name: 'milky'
+  db:
+    url: 'jdbc:postgresql://localhost:5432/taifa?allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false'
