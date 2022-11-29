@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LogInterceptor implements HandlerInterceptor {
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         String requestIp = request.getRemoteHost();        // Comment from here
 
 
@@ -22,7 +21,7 @@ public class LogInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, //
-                                Object handler, Exception ex) throws Exception {
+                                Object handler, Exception ex) {
 
     }
 
