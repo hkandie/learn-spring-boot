@@ -1,12 +1,13 @@
 package com.spiderwalker.io.authserver;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-@Slf4j
+@Log4j2
 public class LogInterceptor implements HandlerInterceptor {
 
     @Override

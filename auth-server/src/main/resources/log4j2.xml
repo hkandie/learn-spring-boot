@@ -36,5 +36,8 @@
         <Logger name="logging.level.org.apache" level="trace">
             <AppenderRef ref="Console"/>
         </Logger>
+        <Logger name="org.springframework.security" level="debug">
+            <AppenderRef ref="Console"/>
+        </Logger>
     </Loggers>
 </Configuration>

@@ -10,12 +10,6 @@ public class ProductRowMapper implements RowMapper<Product> {
     public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
 
 
-        return Product.builder()
-                .productCode(rs.getInt("productcode"))
-                .productName(rs.getString("productname"))
-                .unitCost(rs.getDouble("unitcost"))
-                .retailPrice(rs.getDouble("prodrprice"))
-                .taxRateCode(rs.getString("taxratecode"))
-                .build();
+        return new Product();
     }
 }

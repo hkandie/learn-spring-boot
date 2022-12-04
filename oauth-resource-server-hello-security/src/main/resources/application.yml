@@ -2,7 +2,15 @@ app:
   aws:
     region: "us-east-1"
     secrets:
-     dbSecretId: "Spider/rx-powet/db-normal-user-secret"
+      dbSecretId: "Spider/rx-powet/db-normal-user-secret"
+  ds:
+    base-url: http://localhost:3010/api
+  oauth2:
+    clientCredentials:
+      tokenUri: http://auth-server:3001/oauth2/token
+      clientId: 'client-id-b'
+      clientSecret: 'client-secret-b'
+      scopes: 'api://products:read'
 server:
   port: 3003
 spring:
@@ -11,3 +19,6 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: http://auth-server:3001/oauth2/jwks
+logging:
+  level:
+    org.springframework.jdbc.core: info
