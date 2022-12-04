@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
@@ -30,7 +31,7 @@ public class SpringJdbcConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setUrl("jdbc:postgresql://localhost:5432/taifa");
-        DbSecrets s = getSecret();
+        DbSecrets s = DbSecrets.builder().dbuser("taifa-01").password("taifa123*").build();
         dataSource.setUsername(s.getDbuser());
         dataSource.setPassword(s.getPassword());
         log.info("Database is up");
@@ -38,9 +39,9 @@ public class SpringJdbcConfig {
     }
 
     @Bean
-    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+    public NamedParameterJdbcTemplate namedParameterJdbcTemplate(DataSource dataSource) {
         log.info("Setting up JdbcTemplate");
-        return new JdbcTemplate(dataSource);
+        return new NamedParameterJdbcTemplate(dataSource);
     }
 
     private DbSecrets getSecret() {

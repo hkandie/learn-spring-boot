@@ -6,3 +6,8 @@ server:
 #    key-alias: springboot
 #    key-password: password
   port: 3001
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
