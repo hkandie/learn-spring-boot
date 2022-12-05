@@ -94,7 +94,7 @@ public class AuthSecurityConfig {
                 .scope("message:write")
                 .scope("api://message:read")
                 .tokenSettings(TokenSettings.builder()
-                        .accessTokenTimeToLive(Duration.ofMinutes(1))
+                        .accessTokenTimeToLive(Duration.ofHours(1))
                         .build())
                 .build();
 
@@ -106,7 +106,7 @@ public class AuthSecurityConfig {
                 .scope("api://products:read")
                 .scope("api://products:read-filter")
                 .tokenSettings(TokenSettings.builder()
-                        .accessTokenTimeToLive(Duration.ofMinutes(1))
+                        .accessTokenTimeToLive(Duration.ofHours(1))
                         .build())
                 .build();
         // @formatter:on
