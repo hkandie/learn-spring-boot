@@ -1,0 +1,7 @@
+welcome:
+  message:
+  - '''Welcome to Spring cloud config server'''
+  - '''Welcome to Spring cloud config server'''
+info:
+  foo: bar
+  bar: foo
