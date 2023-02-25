@@ -27,4 +27,5 @@ jobs:
       run: |
         echo "Running mvn test"
         mvn test
+        mvn -Dmaven.test.skip=true clean package && java -jar target/resource-server-hs-1.jar
  
