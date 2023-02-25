@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.OAuth2AuthenticatedPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-public class OAuth2ResourceServerController {
+public class ProductController {
 
     @Autowired
     GreetingService service;
@@ -27,14 +26,14 @@ public class OAuth2ResourceServerController {
     }
 
     @GetMapping("/message")
-    @PreAuthorize("hasAuthority(\"SCOPE_message:read\")")
+    @PreAuthorize("hasAuthority(\"SCOPE_api://products:read\")")
     public ResponseEntity<List<Product>> message(Authentication authentication, @AuthenticationPrincipal Jwt jwt) {
 
         return ResponseEntity.ok(service.products());
     }
 
     @PostMapping("/message")
-    @PreAuthorize("hasAuthority(\"SCOPE_message:write\")")
+    @PreAuthorize("hasAuthority(\"SCOPE_api://message:write\")")
     public String createMessage(@RequestBody String message) {
         return String.format("Message was created. Content: %s", message);
     }

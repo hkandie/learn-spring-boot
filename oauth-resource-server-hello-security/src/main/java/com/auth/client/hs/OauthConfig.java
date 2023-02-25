@@ -13,7 +13,7 @@ import org.springframework.security.oauth2.client.registration.ClientRegistratio
 import org.springframework.security.oauth2.client.registration.InMemoryReactiveClientRegistrationRepository;
 import org.springframework.security.oauth2.client.registration.ReactiveClientRegistrationRepository;
 import org.springframework.security.oauth2.client.web.reactive.function.client.ServerOAuth2AuthorizedClientExchangeFilterFunction;
-import org.springframework.security.oauth2.client.web.server.UnAuthenticatedServerOAuth2AuthorizedClientRepository;
+import org.springframework.security.oauth2.client.web.server.WebSessionServerOAuth2AuthorizedClientRepository;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.netty.http.client.HttpClient;
@@ -31,7 +31,7 @@ public class OauthConfig {
     @Bean(name = "my-platform")
     WebClient webClient(ReactiveClientRegistrationRepository clientRegistrations) {
         ServerOAuth2AuthorizedClientExchangeFilterFunction oauth = new ServerOAuth2AuthorizedClientExchangeFilterFunction(
-                clientRegistrations, new UnAuthenticatedServerOAuth2AuthorizedClientRepository());
+                clientRegistrations, new WebSessionServerOAuth2AuthorizedClientRepository());
         oauth.setDefaultClientRegistrationId("my-platform");
         return WebClient.builder()
                 .clientConnector(new ReactorClientHttpConnector(getHttpClient()))

@@ -17,7 +17,7 @@ import static org.mockito.Mockito.mock;
 @ExtendWith(MockitoExtension.class)
 class OAuth2ResourceServerControllerTest {
     @InjectMocks
-    OAuth2ResourceServerController oAuth2ResourceServerController;
+    ProductController oAuth2ResourceServerController;
 
     @Test
     void index() {
