@@ -25,5 +25,5 @@ jobs:
       working-directory: oauth-resource-server-hello-security
       run: |
         echo "Running mvn test"
-        echo ${{github.event}}
+        echo ${{github.event_name}}
  
