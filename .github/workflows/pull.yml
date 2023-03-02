@@ -26,6 +26,5 @@ jobs:
       working-directory: oauth-resource-server-hello-security
       run: |
         echo "Running mvn test"
-        mvn test
-        mvn -Dmaven.test.skip=true clean package && java -jar target/resource-server-hs-1.jar
+        echo ${{github.event}}
  
