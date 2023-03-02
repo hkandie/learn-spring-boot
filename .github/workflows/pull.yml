@@ -21,9 +21,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Build with Maven
-      working-directory: oauth-resource-server-hello-security
-      run: |
-        echo "Running mvn test"
-        echo ${{github.event_name}}
+    - name: Build with maven  
+      uses: ././github/workflows/verify.yml
+      with:
+        config-path: true
  

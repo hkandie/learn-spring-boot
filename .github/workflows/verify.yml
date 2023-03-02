@@ -1,0 +1,22 @@
+name: Veify
+
+on:
+  workflow_call:
+    inputs:
+      config-path:
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+    reusable_workflow_job:
+      runs-on: ubuntu-latest
+      environment: production
+      steps:  
+        - name: abcd    
+          working-directory: oauth-resource-server-hello-security
+          run: |
+            echo "Running mvn test"
+            echo ${{github.event_name}}
+            echo ${{inputs.config-path}}
+  
