@@ -31,8 +31,7 @@ jobs:
           echo "Running mvn test"
           echo ${{github.event_name}}
           echo ${{github.event.created}}
-          echo ${{inputs.config-path}}
-          echo ${{ github.event.ref_type }}
+          echo ${{ github.event }}
           echo ${{ github.event.ref }}
           echo ${{ github.event.master_branch }}
           echo ${{ github.event.description }}
