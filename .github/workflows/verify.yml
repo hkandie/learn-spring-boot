@@ -17,10 +17,13 @@ jobs:
       runs-on: ubuntu-latest
       environment: production
       steps:  
-        - name: abcd    
-          working-directory: ${{ inputs.working-directory }}
-          shell: bash
-          run: |
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: abcd    
+        working-directory: ${{ inputs.working-directory }}
+        shell: bash
+        run: |
             echo "Running mvn test"
             echo ${{github.event_name}}
             echo ${{inputs.config-path}}
