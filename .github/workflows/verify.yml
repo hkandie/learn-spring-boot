@@ -18,7 +18,8 @@ jobs:
       environment: production
       steps:  
         - name: abcd    
-          working-directory: ${{inputs.working-directory}}
+          working-directory: ${{ inputs.working-directory }}
+          shell: bash
           run: |
             echo "Running mvn test"
             echo ${{github.event_name}}
