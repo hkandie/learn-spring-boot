@@ -25,4 +25,5 @@ jobs:
       uses: ././github/workflows/verify.yml
       with:
         config-path: true
+        :  oauth-resource-server-hello-security
  

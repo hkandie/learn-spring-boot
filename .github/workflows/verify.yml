@@ -7,6 +7,10 @@ on:
         required: true
         type: boolean
         default: false
+      working-directory:
+        required: true
+        type: boolean
+        default: false
 
 jobs:
     reusable_workflow_job:
@@ -14,7 +18,7 @@ jobs:
       environment: production
       steps:  
         - name: abcd    
-          working-directory: oauth-resource-server-hello-security
+          working-directory: ${{inputs.working-directory}}
           run: |
             echo "Running mvn test"
             echo ${{github.event_name}}
