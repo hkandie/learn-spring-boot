@@ -22,7 +22,7 @@ jobs:
         cache: maven
 
     - name: Build with maven  
-      uses: ./.github/workflows/verify.yml
+      uses: /.github/workflows/verify.yml
       with:
         config-path: true
         working-directory: oauth-resource-server-hello-security
