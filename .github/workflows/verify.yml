@@ -1,0 +1,30 @@
+name: Veify
+
+on:
+  workflow_call:
+    inputs:
+      config-path:
+        required: true
+        type: boolean
+        default: false
+      working-directory:
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+    reusable_workflow_job:
+      runs-on: ubuntu-latest
+      environment: production
+      steps:  
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: abcd    
+        working-directory: ${{ inputs.working-directory }}
+        shell: bash
+        run: |
+            echo "Running mvn test"
+            echo ${{github.event_name}}
+            echo ${{inputs.config-path}}
+  

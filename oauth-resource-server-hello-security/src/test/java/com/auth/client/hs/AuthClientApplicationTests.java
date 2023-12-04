@@ -82,7 +82,7 @@ class AuthClientApplicationTests {
 		when(service.products()).thenReturn(productList);
 		this.mockMvc
 				.perform(get("/message").with(
-						jwt().authorities(new SimpleGrantedAuthority("SCOPE_message:read"))))
+						jwt().authorities(new SimpleGrantedAuthority("SCOPE_api://products:read"))))
 				.andExpect(status().isOk())
 				.andExpect(content().json(convertObjectToJsonString(productList)));
 	}
